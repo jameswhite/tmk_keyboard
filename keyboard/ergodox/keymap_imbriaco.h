@@ -41,8 +41,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              FN2, N,  M,  COMM,DOT, SLSH,RSFT,
                       UP, DOWN,LBRC,RBRC,RGUI,
         RALT,RCTL,
-        WH_U,
-        WH_D, ENT, SPC
+        PGUP,
+        PGDN, ENT, SPC
     ),
 
     KEYMAP(  // layer 1 : function and numbervvvvvcc keys
