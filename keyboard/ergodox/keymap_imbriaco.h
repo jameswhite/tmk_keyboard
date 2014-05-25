@@ -14,7 +14,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | FN0  |  `   |  \   | Left | Right|                                       |  Up  |  Dn  |   [  |   ] | RGui |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        | LGui | LAlt |       | Ralt | L1   |
+ *                                        | FN7  | FN8  |       | Ralt | L1   |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      | Home |       | WH_U |      |      |
  *                                 | BkSp |  ESC |------|       |------| Enter| Space|
@@ -31,7 +31,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        LCTRL,A,   S,   D,   F,   G,
        LSFT, Z,   X,   C,   V,   B,   FN1,
        FN0,  GRV, BSLS,LEFT,RGHT,
-                                      LGUI,LALT,
+                                      FN7, FN8,
                                            HOME,
                                  BSPC,DEL, END,
         // right hand
@@ -128,6 +128,8 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
     [4] = ACTION_LAYER_MOMENTARY(2),                      // FN4 - Media Layer
     [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
+    [7] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
+    [8] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -138,6 +140,50 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         _delay_ms(50);
         bootloader_jump(); // should not return
         print("not supported.\n");
+    }
+
+    /*
+     * This allows my LGui and LAlt keys to double as copy and paste
+     * macros when tapped.
+     */
+    if (id == COPY_KEY || id == PASTE_KEY) {
+        if (record->tap.count == 0 || record->tap.interrupted) {
+            uint8_t weak_mods;
+
+            if (id == COPY_KEY) {
+                weak_mods = MOD_LGUI;
+            } else {
+                weak_mods = MOD_LALT;
+            }
+
+            if (record->event.pressed) {
+                add_weak_mods(weak_mods);
+            } else {
+                del_weak_mods(weak_mods);
+
+                /* It appears to be necessary to send a report here to
+                 * avoid having LGui get "stuck" on. */
+                send_keyboard_report();
+            }
+        } else {
+            uint8_t keycode;
+
+            if (id == COPY_KEY) {
+              keycode = KC_C;
+            } else {
+              keycode = KC_V;
+            }
+
+            if (record->event.pressed) {
+                add_weak_mods(MOD_LGUI);
+                add_key(keycode);
+                send_keyboard_report();
+            } else {
+                del_weak_mods(MOD_LGUI);
+                del_key(keycode);
+                send_keyboard_report();
+            }
+        }
     }
 }
 
