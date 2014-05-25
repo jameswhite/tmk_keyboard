@@ -8,7 +8,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |  [   |           |   ]  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
- * |--------+------+------+------+------+------| FN0  |           | FN2  |------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------| FN1  |           | FN2  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | FN0  |  `   |  \   | Left | Right|                                       |  Up  |  Dn  |   [  |   ] | RGui |
@@ -29,7 +29,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        EQL,  1,   2,   3,   4,   5,   ESC,
        FN5,  Q,   W,   E,   R,   T,   LBRC,
        LCTRL,A,   S,   D,   F,   G,
-       LSFT, Z,   X,   C,   V,   B,   FN0,
+       LSFT, Z,   X,   C,   V,   B,   FN1,
        FN0,  GRV, BSLS,LEFT,RGHT,
                                       LGUI,LALT,
                                            HOME,
