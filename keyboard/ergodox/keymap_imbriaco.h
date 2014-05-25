@@ -37,7 +37,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
              FN4, 6,  7,  8,   9,   0,   MINS,
              RBRC,Y,  U,  I,   O,   P,   BSLS,
-                  H,  J,  K,   L,   SCLN,FN6,
+                  H,  J,  K,   L,   SCLN,QUOT,
              FN2, N,  M,  COMM,DOT, SLSH,RSFT,
                       UP, DOWN,LBRC,RBRC,RGUI,
         RALT,RCTL,
@@ -128,7 +128,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
     [4] = ACTION_LAYER_MOMENTARY(2),                      // FN4 - Media Layer
     [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
-    [6] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_QUOT),         // FN6 - Quote on tap, LGui on hold
+    [6] = 0,
     [7] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
     [8] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
 };
