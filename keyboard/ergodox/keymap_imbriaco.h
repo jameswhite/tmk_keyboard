@@ -5,13 +5,13 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   =    |   1  |   2  |   3  |   4  |   5  | ESC  |           |   -  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  |  _   |           | FN1  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  |  [   |           |   ]  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
  * |--------+------+------+------+------+------| FN0  |           | FN2  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | FN0  |  `   |  \   | Left | Right|                                       |  Up  |  Dn  | LBrc | RBrc | RGui |
+ *   | FN0  |  `   |  \   | Left | Right|                                       |  Up  |  Dn  |   [  |   ] | RGui |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | LGui | LAlt |       | Ralt | L1   |
@@ -27,7 +27,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
        EQL,  1,   2,   3,   4,   5,   ESC,
-       FN5,  Q,   W,   E,   R,   T,   FN2,
+       FN5,  Q,   W,   E,   R,   T,   LBRC,
        LCTRL,A,   S,   D,   F,   G,
        LSFT, Z,   X,   C,   V,   B,   FN0,
        FN0,  GRV, BSLS,LEFT,RGHT,
@@ -36,8 +36,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  BSPC,DEL, END,
         // right hand
              FN4, 6,  7,  8,   9,   0,   MINS,
-             FN1, Y,  U,  I,   O,   P,   BSLS,
-                  H,  J,  K,   L,   SCLN,QUOT,
+             RBRC,Y,  U,  I,   O,   P,   BSLS,
+                  H,  J,  K,   L,   SCLN,FN6,
              FN2, N,  M,  COMM,DOT, SLSH,RSFT,
                       UP, DOWN,LBRC,RBRC,RGUI,
         RALT,RCTL,
