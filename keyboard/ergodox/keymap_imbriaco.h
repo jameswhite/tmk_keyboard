@@ -185,7 +185,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     }
 }
 
-#define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
+#define FN_ACTIONS_SIZE     (sizeof(fn_actions) / sizeof(fn_actions[0]))
 
 /*
  * translates Fn keycode to action
