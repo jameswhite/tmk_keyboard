@@ -128,6 +128,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
     [4] = ACTION_LAYER_MOMENTARY(2),                      // FN4 - Media Layer
     [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
+    [6] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_QUOT),         // FN6 - Quote on tap, LGui on hold
     [7] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
     [8] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
 };
