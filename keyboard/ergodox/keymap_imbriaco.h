@@ -144,6 +144,8 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     /*
      * This allows my LGui and LAlt keys to double as copy and paste
      * macros when tapped.
+     *
+     * Largely copied (like the rest of this keymap) from cub's map.
      */
     if (id == COPY_KEY || id == PASTE_KEY) {
         if (record->tap.count == 0 || record->tap.interrupted) {
