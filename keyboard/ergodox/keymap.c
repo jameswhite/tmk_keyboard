@@ -85,6 +85,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap_micro.h"
 #elif defined(KEYMAP_CUB)
 #include "keymap_cub.h"
+#elif defined(KEYMAP_IMBRIACO)
+#include "keymap_imbriaco.h"
+#elif defined(KEYMAP_TEST)
+#include "keymap_test.h"
 #else
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -218,7 +222,7 @@ uint8_t keymap_key_to_keycode(uint8_t layer, key_t key)
     }
 }
 
-#if defined(KEYMAP_CUB)
+#if defined(KEYMAP_CUB) || defined(KEYMAP_IMBRIACO)
 
 // function keymap_fn_to_action will be defined in keymap_cub.h
 
@@ -235,4 +239,3 @@ action_t keymap_fn_to_action(uint8_t keycode)
     return action;
 }
 #endif
-
