@@ -16,9 +16,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        ,-------------.       ,-------------.
  *                                        | FN7  | FN8  |       | Ralt | L1   |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      | Home |       | WH_U |      |      |
+ *                                 |      |      | Home |       | PGUP |      |      |
  *                                 | BkSp |  ESC |------|       |------| Enter| Space|
- *                                 |      |      |  End |       | WH_D |      |      |
+ *                                 |      |      |  End |       | PGDN |      |      |
  *                                 `--------------------'       `--------------------'
  *
  *
