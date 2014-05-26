@@ -45,7 +45,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         PGDN, ENT, SPC
     ),
 
-    KEYMAP(  // layer 1 : function and numbervvvvvcc keys
+    KEYMAP(  // layer 1 : function and numpad keys
         // left hand
         TRNS,F1,  F2,  F3,  F4,  F5,  F6,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN4,
