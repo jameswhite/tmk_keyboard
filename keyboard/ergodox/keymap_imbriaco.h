@@ -5,10 +5,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   =    |   1  |   2  |   3  |   4  |   5  | ESC  |           |   -  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  |  [   |           |   ]  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  | FN1  |           | FN2  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
- * |--------+------+------+------+------+------| FN1  |           | FN2  |------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------| LGui |           | LGui |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | FN0  |  `   |  \   | Left | Right|                                       |  Up  |  Dn  |   [  |   ] | RGui |
@@ -26,19 +26,19 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // layer 0 : default
         // left hand
-       EQL,  1,   2,   3,   4,   5,   ESC,
-       FN5,  Q,   W,   E,   R,   T,   LBRC,
-       LCTRL,A,   S,   D,   F,   G,
-       LSFT, Z,   X,   C,   V,   B,   FN1,
-       FN0,  GRV, BSLS,LEFT,RGHT,
+       EQL, 1,   2,   3,   4,   5,   ESC,
+       FN5, Q,   W,   E,   R,   T,   FN1,
+       FN6, A,   S,   D,   F,   G,
+       LSFT,Z,   X,   C,   V,   B,   LGUI,
+       FN0, GRV, BSLS,LEFT,RGHT,
                                       FN7, FN8,
                                            HOME,
                                  BSPC,DEL, END,
         // right hand
              FN4, 6,  7,  8,   9,   0,   MINS,
-             RBRC,Y,  U,  I,   O,   P,   BSLS,
+             FN2, Y,  U,  I,   O,   P,   BSLS,
                   H,  J,  K,   L,   SCLN,QUOT,
-             FN2, N,  M,  COMM,DOT, SLSH,RSFT,
+             LGUI,N,  M,  COMM,DOT, SLSH,RSFT,
                       UP, DOWN,LBRC,RBRC,RGUI,
         RALT,RCTL,
         PGUP,
@@ -128,7 +128,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
     [4] = ACTION_LAYER_MOMENTARY(2),                      // FN4 - Media Layer
     [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
-    [6] = 0,
+    [6] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),          // FN6 - ESC on tap, Control on hold
     [7] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
     [8] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
 };
