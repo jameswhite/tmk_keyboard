@@ -1,0 +1,2 @@
+#!/bin/bash
+clear; make -f Makefile.lufa clean; make -f Makefile.lufa jameswhite; [ -f ergodox_lufa.hex ] && mv ergodox_lufa.hex ~/Downloads/_jameswhite_lufa.hex

@@ -87,6 +87,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap_cub.h"
 #elif defined(KEYMAP_IMBRIACO)
 #include "keymap_imbriaco.h"
+#elif defined(KEYMAP_JAMESWHITE)
+#include "keymap_jameswhite.h"
 #elif defined(KEYMAP_TEST)
 #include "keymap_test.h"
 #else
@@ -222,7 +224,7 @@ uint8_t keymap_key_to_keycode(uint8_t layer, key_t key)
     }
 }
 
-#if defined(KEYMAP_CUB) || defined(KEYMAP_IMBRIACO)
+#if defined(KEYMAP_CUB) || defined(KEYMAP_IMBRIACO) || defined(KEYMAP_JAMESWHITE)
 
 // function keymap_fn_to_action will be defined in keymap_cub.h
 

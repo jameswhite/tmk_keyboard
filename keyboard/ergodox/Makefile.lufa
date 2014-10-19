@@ -140,5 +140,8 @@ cub: all
 imbriaco: OPT_DEFS += -DKEYMAP_IMBRIACO
 imbriaco: all
 
+jameswhite: OPT_DEFS += -DKEYMAP_JAMESWHITE
+jameswhite: all
+
 test: OPT_DEFS += -DKEYMAP_TEST
 test: all

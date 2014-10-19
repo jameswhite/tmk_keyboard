@@ -7,7 +7,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  | FN1  |           | FN2  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
+ * | FN6    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
  * |--------+------+------+------+------+------| LGui |           | LGui |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -17,7 +17,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | FN7  | FN8  |       | Ralt | L1   |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      | Home |       | PGUP |      |      |
- *                                 | BkSp |  ESC |------|       |------| Enter| Space|
+ *                                 | BkSp |  DEL |------|       |------| Enter| Space|
  *                                 |      |      |  End |       | PGDN |      |      |
  *                                 `--------------------'       `--------------------'
  *
@@ -28,7 +28,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
        EQL, 1,   2,   3,   4,   5,   ESC,
        TAB, Q,   W,   E,   R,   T,   FN1,
-       LCTRL, A,   S,   D,   F,   G,
+       FN6, A,   S,   D,   F,   G,
        LSFT, Z,   X,   C,   V,   B,   LGUI,
        FN0, GRV, BSLS,LEFT,RGHT,
                                       FN7, FN8,
