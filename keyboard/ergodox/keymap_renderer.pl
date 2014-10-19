@@ -1,20 +1,6 @@
 #!/usr/bin/env perl
 use FileHandle;
 sub keymap {
-my    ($LH00, $LH01, $LH02, $LH03, $LH04, $LH05, $LH06,                 $RH00, $RH01, $RH02, $RH03, $RH04, $RH05, $RH06,
-       $LH10, $LH11, $LH12, $LH13, $LH14, $LH15, $LH16,                 $RH10, $RH11, $RH12, $RH13, $RH14, $RH15, $RH16,
-       $LH20, $LH21, $LH22, $LH23, $LH24, $LH25, $LH26,                 $RH20, $RH21, $RH22, $RH23, $RH24, $RH25, $RH26,
-       $LH30, $LH31, $LH32, $LH33, $LH34, $LH35,                               $RH31, $RH32, $RH33, $RH34, $RH35, $RH36,
-       $LH40, $LH41, $LH42, $LH43, $LH44, $LH45,                               $RH41, $RH42, $RH43, $RH14, $RH45, $RH46,
-                                                 $LH51, $LH52,   $RH50, $RH51,
-                                          $LH60, $LH61, $LH62,   $RH60, $RH61, $RH62,
-                                                        $LH72,   $RH70) = (@_);
-
-sub key{
-  my $key=shift;
-  return " ".subsr($key,0,4)." "
-}
-
 print qq(/*
  * Keymap: Default Layer in QWERTY
  *
@@ -79,31 +65,39 @@ sub split2wide {
 
 ################################################################################
 
-keymap ("LH00", "LH01", "LH02", "LH03", "LH04", "LH05", "LH06",                   "RH00", "RH01", "RH02", "RH03", "RH04", "RH05", "RH06",
-        "LH10", "LH11", "LH12", "LH13", "LH14", "LH15", "LH16",                   "RH10", "RH11", "RH12", "RH13", "RH14", "RH15", "RH16",
-        "LH20", "LH21", "LH22", "LH23", "LH24", "LH25", "LH26",                   "RH20", "RH21", "RH22", "RH23", "RH24", "RH25", "RH26",
-        "LH30", "LH31", "LH32", "LH33", "LH34", "LH35",                                   "RH31", "RH32", "RH33", "RH34", "RH35", "RH36",
-        "LH40", "LH41", "LH42", "LH43", "LH44",                                                   "RH42", "RH43", "RH14", "RH45", "RH46",
-                                                        "LH51", "LH52",   "RH50", "RH51",
-                                                "LH60", "LH61", "LH62",   "RH60", "RH61", "RH62",
-                                                                "LH72",   "RH70");
+# keymap ("LH00", "LH01", "LH02", "LH03", "LH04", "LH05", "LH06",                   "RH00", "RH01", "RH02", "RH03", "RH04", "RH05", "RH06",
+#         "LH10", "LH11", "LH12", "LH13", "LH14", "LH15", "LH16",                   "RH10", "RH11", "RH12", "RH13", "RH14", "RH15", "RH16",
+#         "LH20", "LH21", "LH22", "LH23", "LH24", "LH25", "LH26",                   "RH20", "RH21", "RH22", "RH23", "RH24", "RH25", "RH26",
+#         "LH30", "LH31", "LH32", "LH33", "LH34", "LH35",                                   "RH31", "RH32", "RH33", "RH34", "RH35", "RH36",
+#         "LH40", "LH41", "LH42", "LH43", "LH44",                                                   "RH42", "RH43", "RH14", "RH45", "RH46",
+#                                                         "LH51", "LH52",   "RH50", "RH51",
+#                                                 "LH60", "LH61", "LH62",   "RH60", "RH61", "RH62",
+#                                                                 "LH72",   "RH70");
 
-keymap(
-split2wide( qw( EQL, 1,   2,   3,   4,   5,   ESC,
-                TAB, Q,   W,   E,   R,   T,   FN1,
-                FN6, A,   S,   D,   F,   G,
-                LSFT, Z,   X,   C,   V,   B,   LGUI,
-                FN0, GRV, BSLS, LEFT, RGHT,
-                                              FN7, FN8,
-                                                   HOME,
-                                         BSPC, DEL, END,
-                     FN4,  6,  7,  8,   9,   0,   MINS,
-                     FN2,  Y,  U,  I,   O,   P,   BSLS,
-                           H,  J,  K,   L,   SCLN, QUOT,
-                     LGUI, N,  M,  COMM, DOT, SLSH, RSFT,
-                              UP, DOWN, LBRC, RBRC, RGUI,
-                RALT, RCTL,
-                PGUP,
-                PGDN, ENT, SPC
-            )));
+################################################################################
+
+# my $c_keymap ='
+# EQL, 1,   2,   3,   4,   5,   ESC,
+# TAB, Q,   W,   E,   R,   T,   FN1,
+# FN6, A,   S,   D,   F,   G,
+# LSFT, Z,   X,   C,   V,   B,   LGUI,
+# FN0, GRV, BSLS, LEFT, RGHT,
+#                             FN7, FN8,
+#                                  HOME,
+#                       BSPC, DEL, END,
+#     FN4,  6,  7,  8,   9,   0,   MINS,
+#     FN2,  Y,  U,  I,   O,   P,   BSLS,
+#     H,  J,  K,   L,   SCLN, QUOT,
+#    LGUI, N,  M,  COMM, DOT, SLSH, RSFT,
+#        UP, DOWN, LBRC, RBRC, RGUI,
+# RALT, RCTL,
+# PGUP,
+# PGDN, ENT, SPC
+# ';
+#
+# $c_keymap=~tr/\n/ /;
+# $c_keymap=~s/\s+/ /g;
+# keymap(split2wide(split(/,/,$c_keymap)));
+
+################################################################################
 
