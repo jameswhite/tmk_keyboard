@@ -1,2 +1,8 @@
 #!/bin/bash
-clear; make -f Makefile.lufa clean; make -f Makefile.lufa jameswhite; [ -f ergodox_lufa.hex ] && mv ergodox_lufa.hex ~/Downloads/_jameswhite_lufa.hex
+clear; make -f Makefile.lufa clean; make -f Makefile.lufa jameswhite;
+if [ -f ergodox_lufa.hex ]; then
+ mv ergodox_lufa.hex ~/Downloads/_jameswhite_lufa.hex
+else
+ hex file failed to build
+fi
+./keymap_renderer.pl keymap_jameswhite.h > jameswhite.map 

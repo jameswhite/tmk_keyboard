@@ -56,6 +56,7 @@ print qq(/*
 sub pad4{
   $_=~s/^\s+//;
   $_=~s/\s+$//;
+  return '    '         if($_ eq 'NO');
   return ' ø  '         if($_ eq 'TRNS');
   return ' ø  '         if($_ eq 'TRN');
   return substr($_,0,4) if(length($_) >  4);

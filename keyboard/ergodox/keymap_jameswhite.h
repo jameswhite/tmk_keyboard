@@ -1,56 +1,31 @@
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/*
- * Keymap: Default Layer in QWERTY
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =    |   1  |   2  |   3  |   4  |   5  | ESC  |           | FN4  |   6  |   7  |   8  |   9  |   0  |   -    |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  | FN1  |           | FN2  |   Y  |   U  |   I  |   O  |   P  |   \    |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | FN6    |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
- * |--------+------+------+------+------+------| LGui |           | LGui |------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | FN0  |  `   |  \   | Left | Right|                                       |  Up  |  Dn  |   [  |   ] | RGui |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        | FN7  | FN8  |       | Ralt | L1   |
- *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      | Home |       | PGUP |      |      |
- *                                 | BkSp |  DEL |------|       |------| Enter| Space|
- *                                 |      |      |  End |       | PGDN |      |      |
- *                                 `--------------------'       `--------------------'
- *
- *
- */
-
     KEYMAP(  // layer 0 : default
-        // left hand
+       // left hand
        EQL, 1,   2,   3,   4,   5,   ESC,
-       TAB, Q,   W,   E,   R,   T,   FN1,
-       FN6, A,   S,   D,   F,   G,
+       TAB, Q,   W,   E,   R,   T,   FN0,
+       CAPS, A,   S,   D,   F,   G,
        LSFT, Z,   X,   C,   V,   B,   LGUI,
-       FN0, GRV, BSLS,LEFT,RGHT,
+       LCTRL, GRV, LEFT,RGHT, BSPC,
                                       FN7, FN8,
                                            HOME,
                                  BSPC,DEL, END,
         // right hand
              FN4, 6,  7,  8,   9,   0,   MINS,
-             FN2, Y,  U,  I,   O,   P,   BSLS,
+             FN0, Y,  U,  I,   O,   P,   BSLS,
                   H,  J,  K,   L,   SCLN,QUOT,
              LGUI,N,  M,  COMM,DOT, SLSH,RSFT,
-                      UP, DOWN,LBRC,RBRC,RGUI,
+                      SPC, UP, DOWN,LBRC,RBRC,
         RALT,RCTL,
         PGUP,
         PGDN, ENT, SPC
     ),
 
-    KEYMAP(  // layer 1 : function and numpad keys
+    KEYMAP(  // layer 1 : function, media, and numpad keys
         // left hand
         TRNS,F1,  F2,  F3,  F4,  F5,  F6,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN4,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,VOLU,TRNS,TRNS,TRNS,
+        TRNS,MPRV,MNXT,MSTP,MPLY,TRNS,
+        TRNS,TRNS,TRNS,VOLD,MUTE,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
@@ -66,28 +41,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN3, TRNS,TRNS
     ),
 
-    KEYMAP(  // layer 2 : media layer
-        // left hand
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,MUTE,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,VOLU,
-        TRNS,MPRV,MNXT,MSTP,MPLY,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,VOLD,
-        TRNS,TRNS,TRNS,TRNS,TRNS,
-                                      TRNS,TRNS,
-                                           TRNS,
-                                 TRNS,TRNS,TRNS,
-        // right hand
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                       TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,
-        TRNS,
-        TRNS,TRNS,TRNS
-    ),
-
-    KEYMAP(  // layer 3: numpad
+    KEYMAP(  // layer 2: numpad
         // left hand
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -122,11 +76,11 @@ enum function_id {
  * Fn action definition
  */
 static const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_MOMENTARY(1),                      // FN0  - Activate Layer 1
-    [1] = ACTION_MODS_KEY(MOD_LGUI | MOD_LSFT, KC_LBRC),  // FN1 = CMD + Shift + [
-    [2] = ACTION_MODS_KEY(MOD_LGUI | MOD_LSFT, KC_RBRC),  // FN2 - CMD + Shift + ]
+    [0] = ACTION_LAYER_MOMENTARY(1),                      // FN0 - Activate Layer 1
+    [1] = ACTION_MODS_KEY(MOD_LGUI | MOD_LSFT, KC_TAB),   // FN1 - CMD + Shift + TAB
+    [2] = ACTION_MODS_KEY(MOD_LGUI , KC_TAB),             // FN2 - CMD + TAB
     [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
-    [4] = ACTION_LAYER_MOMENTARY(2),                      // FN4 - Media Layer
+    [4] = ACTION_LAYER_MOMENTARY(3),                      // FN4 - Numpad Layer
     [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
     [6] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),          // FN6 - ESC on tap, Control on hold
     [7] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
