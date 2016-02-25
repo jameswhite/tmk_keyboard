@@ -22,7 +22,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // layer 1 : function, media, and numpad keys
         // left hand
-        TRNS,F1,  F2,  F3,  F4,  F5,  F6,
+        FN1, F1,  F2,  F3,  F4,  F5,  F6,
         TRNS,TRNS,TRNS,VOLU,TRNS,TRNS,TRNS,
         TRNS,MRWD,MFFD,MSTP,MPLY,TRNS,
         TRNS,TRNS,TRNS,VOLD,MUTE,TRNS,TRNS,
@@ -31,7 +31,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             F7,  F8,  F9,  F10, F11, F12, TRNS,
+             F7,  F8,  F9,  F10, F11, F12, FN2,
              TRNS,TRNS,P7,  P8,  P9,  PMNS,TRNS,
                   PAST,P4,  P5,  P6,  PPLS,TRNS,
              TRNS,PSLS,P1,  P2,  P3,  PENT,TRNS,
@@ -77,8 +77,8 @@ enum function_id {
  */
 static const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),                      // FN0 - Activate Layer 1
-    [1] = ACTION_MODS_KEY(MOD_LGUI | MOD_LSFT, KC_TAB),   // FN1 - CMD + Shift + TAB
-    [2] = ACTION_MODS_KEY(MOD_LGUI , KC_TAB),             // FN2 - CMD + TAB
+    [1] = ACTION_MODS_KEY(MOD_LALT, KC_L),                // FN1 - ALT + l
+    [2] = ACTION_MODS_KEY(MOD_LALT | MOD_LSFT, KC_R),     // FN1 - ALT + Shift + r
     [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
     [4] = ACTION_LAYER_MOMENTARY(3),                      // FN4 - Numpad Layer
     [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
