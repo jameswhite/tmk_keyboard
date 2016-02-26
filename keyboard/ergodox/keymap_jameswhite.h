@@ -35,10 +35,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              TRNS,TRNS,P7,  P8,  P9,  PMNS,TRNS,
                   PAST,P4,  P5,  P6,  PPLS,TRNS,
              TRNS,PSLS,P1,  P2,  P3,  PENT,TRNS,
-                       P0,  P0, DEL,  PENT,TRNS,
+                       P0,  P0, DEL,  PENT,FN3,
         TRNS,TRNS,
         TRNS,
-        FN3, TRNS,TRNS
+        TRNS, TRNS,TRNS
     ),
 
     KEYMAP(  // layer 2: numpad
@@ -79,12 +79,13 @@ static const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),                      // FN0 - Activate Layer 1
     [1] = ACTION_MODS_KEY(MOD_LALT, KC_L),                // FN1 - ALT + l
     [2] = ACTION_MODS_KEY(MOD_LALT | MOD_LSFT, KC_R),     // FN1 - ALT + Shift + r
-    [3] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
+    [3] = ACTION_MODS_KEY(MOD_LALT | MOD_LGUI, KC_Y),     // FN1 - ALT + Shift + r
     [4] = ACTION_LAYER_MOMENTARY(3),                      // FN4 - Numpad Layer
-    [5] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
-    [6] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),          // FN6 - ESC on tap, Control on hold
-    [7] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
-    [8] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
+    [5] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
+    [6] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
+    [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),          // FN6 - ESC on tap, Control on hold
+    [8] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
+    [9] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
