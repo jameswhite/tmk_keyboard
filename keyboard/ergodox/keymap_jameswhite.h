@@ -6,7 +6,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        CAPS, A,   S,   D,   F,   G,
        LSFT, Z,   X,   C,   V,   B,   LGUI,
        LCTRL, GRV, LEFT,RGHT, BSPC,
-                                      FN7, FN8,
+                                      FN8, FN9,
                                            HOME,
                                  BSPC,DEL, END,
         // right hand
