@@ -1,65 +1,44 @@
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
        // left hand
-       ESC, 1,   2,   3,   4,   5,  6,
-       TAB, Q,   W,   E,   R,   T,   FN0,
-       CAPS, A,   S,   D,   F,   G,
-       LSFT, Z,   X,   C,   V,   B,   LGUI,
-       LCTRL, GRV, LEFT,RGHT, BSPC,
-                                      FN8, FN9,
+       ESC,     1,    2,    3,   4,   5,  6,
+       TAB,     Q,    W,    E,   R,   T,   LBRC,
+       FN6,     A,    S,    D,   F,   G,
+       FN5,     Z,    X,    C,   V,   B,   LGUI,
+       LCTRL, FN0, LEFT, RGHT, FN0,
+                                      FN1, FN2,
                                            HOME,
                                  BSPC,DEL, END,
         // right hand
-             FN4, 7,  8,   9,   0,  MINS, EQL,
-             FN0, Y,  U,  I,   O,   P,   BSLS,
-                  H,  J,  K,   L,   SCLN,QUOT,
-             LGUI,N,  M,  COMM,DOT, SLSH,RSFT,
-                      SPC, UP, DOWN,LBRC,RBRC,
-        RALT,RCTL,
+             GRV,  7,   8,     9,    0, MINS, EQL,
+             RBRC, Y,   U,     I,    O,    P, BSLS,
+                   H,   J,     K,    L, SCLN, QUOT,
+             LGUI,  N,   M,  COMM,  DOT, SLSH, FN5,
+                      FN0,    UP, DOWN,  FN0, RCTRL,
+        RALT, RCTL,
         PGUP,
-        PGDN, ENT, SPC
+        PGDN,  ENT, SPC
     ),
 
     KEYMAP(  // layer 1 : function, media, and numpad keys
         // left hand
-        FN1, F1,  F2,  F3,  F4,  F5,  F6,
-        TRNS,TRNS,TRNS,VOLU,TRNS,TRNS,TRNS,
-        TRNS,MRWD,MFFD,MSTP,MPLY,TRNS,
-        TRNS,TRNS,TRNS,VOLD,MUTE,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,
-                                      TRNS,TRNS,
-                                           TRNS,
-                                 TRNS,TRNS,TRNS,
+        FN3,    F1,   F2,  F3,  F4,  F5,  F6,
+        TRNS, TRNS, TRNS, TRNS, VOLU, TRNS, TRNS,
+        TRNS, TRNS, TRNS, MRWD, MPLY, MFFD,
+        TRNS, TRNS, TRNS, TRNS, VOLD, MUTE, TRNS,
+        TRNS, FN0,  TRNS, TRNS, FN0,
+                                      TRNS, TRNS,
+                                            TRNS,
+                                 SPC,  ENT, TRNS,
         // right hand
-             F7,  F8,  F9,  F10, F11, F12, FN2,
-             TRNS,TRNS,P7,  P8,  P9,  PMNS,TRNS,
-                  PAST,P4,  P5,  P6,  PPLS,TRNS,
-             TRNS,PSLS,P1,  P2,  P3,  PENT,TRNS,
-                       P0,  P0, DEL,  PENT,FN3,
-        TRNS,TRNS,
+             F7,  F8,  F9,  F10, F11,  F12, FN4,
+           TRNS, TRNS, P7,  P8,  P9,  PMNS, TRNS,
+                 PAST, P4,  P5,  P6,  PPLS, TRNS,
+           TRNS, PSLS, P1,  P2,  P3,  PENT, TRNS,
+                       FN0,  P0, DEL,  FN0, TRNS,
+        TRNS, TRNS,
         TRNS,
-        TRNS, TRNS,TRNS
-    ),
-
-    KEYMAP(  // layer 2: numpad
-        // left hand
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,
-                                      TRNS,TRNS,
-                                           TRNS,
-                                 TRNS,TRNS,TRNS,
-        // right hand
-             SLCK,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
-             TRNS,NO,  P7,  P8,  P9,  PMNS,BSPC,
-                  NO,  P4,  P5,  P6,  PPLS,PENT,
-             TRNS,NO,  P1,  P2,  P3,  PPLS,PENT,
-                       P0,  PDOT,SLSH,PENT,PENT,
-        TRNS,TRNS,
-        TRNS,
-        TRNS,TRNS,TRNS
+        TRNS, DEL, BSPC
     ),
 
 };
@@ -77,15 +56,20 @@ enum function_id {
  */
 static const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),                      // FN0 - Activate Layer 1
-    [1] = ACTION_MODS_KEY(MOD_LALT, KC_L),                // FN1 - ALT + l
-    [2] = ACTION_MODS_KEY(MOD_LALT | MOD_LSFT, KC_R),     // FN1 - ALT + Shift + r
-    [3] = ACTION_MODS_KEY(MOD_LALT | MOD_LGUI, KC_Y),     // FN1 - ALT + Shift + r
-    [4] = ACTION_LAYER_MOMENTARY(3),                      // FN4 - Numpad Layer
-    [5] = ACTION_FUNCTION(TEENSY_KEY),                    // FN3 - Teensy Key
-    [6] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FN5 - Tab on tap, LGui on hold
-    [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),          // FN6 - ESC on tap, Control on hold
-    [8] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN7 - LGui+C on tap, LGui on hold
-    [9] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN8 - LGui+V on tap, LGui on hold
+    [1] = ACTION_FUNCTION_TAP(COPY_KEY),                  // FN1 - LGui+C on tap, LGui on hold
+    [2] = ACTION_FUNCTION_TAP(PASTE_KEY),                 // FN2 - LGui+V on tap, LGui on hold
+    [3] = ACTION_MODS_KEY(MOD_LALT, KC_L),                // FN3 - Alt + L // Divvy left 1/3rd screen
+    [4] = ACTION_MODS_KEY(MOD_LALT | MOD_LSFT, KC_R),     // FN4 - ALT + Shift + rAlt + L // Divvy right 2/3rds screen
+    [5] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_CAPS),         // FN5 - CAPSLOCK on tap, Left Shift on hold
+    [6] = ACTION_MODS_TAP_KEY(MOD_LALT, KC_CAPS),         // FN6 - CAPSLOCK on tap, Left Alt on hold
+/*
+    [N] = ACTION_LAYER_MOMENTARY(2),                      // FNN - Activate Layer 2
+    [N] = ACTION_MODS_KEY(MOD_LALT | MOD_LGUI, KC_Y),     // FNN - ALT + Shift + r
+    [N] = ACTION_LAYER_MOMENTARY(3),                      // FNN - Numpad Layer
+    [N] = ACTION_FUNCTION(TEENSY_KEY),                    // FNN - Teensy Key
+    [N] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_TAB),          // FNN - Tab on tap, LGui on hold
+    [N] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),          // FNN - ESC on tap, Control on hold
+*/
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
